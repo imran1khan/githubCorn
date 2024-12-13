@@ -29,6 +29,6 @@ jobs:
 
       # Step 4: Run the cron job script
       - name: Run cron job
-        run: npm run cron-job
+        run: npm run dev
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
