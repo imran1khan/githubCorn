@@ -40,4 +40,4 @@ jobs:
         env:
           DATABASE_URL: "postgresql://neondb_owner:3ubIrWc8Xqty@ep-dark-scene-a5eiu5tm-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
           RAPIDAPI_KEY: "359e9857bemshcf756dd909cb502p1ac7d8jsned603b20a826"
-        run: npm run cron-job
+        run: npm run dev
