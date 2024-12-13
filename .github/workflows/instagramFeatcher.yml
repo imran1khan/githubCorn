@@ -3,7 +3,7 @@ name: Instagram Data Cron Job
 on:
   # Schedule: Run the job every day at midnight (UTC)
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/5 * * * *'
 
   # Manual trigger: Adds a "Run Workflow" button in the GitHub Actions UI
   workflow_dispatch:
