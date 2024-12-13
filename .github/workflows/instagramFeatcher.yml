@@ -27,8 +27,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run the cron job script
-      - name: Run cron job
-        run: npm run dev
+      # Step 4: Set up Prisma and apply migrations
+      - name: Apply Prisma migrations
         env:
-          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
+          DATABASE_URL: "postgresql://neondb_owner:3ubIrWc8Xqty@ep-dark-scene-a5eiu5tm-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
+        run: |
+          npx prisma generate
+          npx prisma migrate deploy
+
+      # Step 5: Run the cron job script
+      - name: Run cron job
+        env:
+          DATABASE_URL: "postgresql://neondb_owner:3ubIrWc8Xqty@ep-dark-scene-a5eiu5tm-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require"
+          RAPIDAPI_KEY: "359e9857bemshcf756dd909cb502p1ac7d8jsned603b20a826"
+        run: npm run cron-job
